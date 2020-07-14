@@ -4,6 +4,8 @@ import CreateOrFind from "../components/createOrFind"
 import Create from "../components/create"
 import API from "../utils/API"
 import SearchResults from "../components/searchResults"
+import axios from "axios"
+const session = require("express-session")
 
 class CreateGame extends Component {
 
@@ -11,10 +13,15 @@ class CreateGame extends Component {
         createOrFind: "",
         searchTitle: "",
         searchYear: "",
-        results: {}
+        results: {},
+        currentUser: ""
     }
 
     componentDidMount() {
+        axios.get("http://localhost:3000/api/get-session").then(data => 
+        this.setState({
+            currentUser: data.data.user
+        }))
         
     }
 
@@ -54,7 +61,10 @@ class CreateGame extends Component {
     render() {
         return (
             <React.Fragment>
-                <CreateOrFind handleChange={this.handleChange}/>
+                <CreateOrFind 
+                    handleChange={this.handleChange} 
+                    welcome={this.state.currentUser}
+                />
                 {this.state.createOrFind === "start" && 
                     <Create 
                     handleInputChange={this.handleInputChange}

@@ -16,6 +16,7 @@ module.exports = function (app) {
 
     app.get("/api/find-user", function(req, res) {
         console.log("query: ", req.query)
+        req.session.user = req.query.name
         db.User.findOne({
             name: req.query.name,
             password: req.query.password
@@ -24,6 +25,12 @@ module.exports = function (app) {
         }).catch(function(err) {
             console.log(err)
         })
+    })
+
+    app.get("/api/get-session", function(req, res) {
+        console.log(req.session)
+        var sesh = req.session
+        res.json(sesh)
     })
 
 }
