@@ -17,7 +17,7 @@ function Create(props) {
 
             <button onClick={props.handleFormSubmit}>Search</button>
 
-            <button>Add Players</button>
+            <button onClick={props.addPlayers}>Add Players</button>
 
             <button onClick={props.createGame}>Create Game</button>
 

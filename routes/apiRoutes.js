@@ -33,4 +33,15 @@ module.exports = function (app) {
         res.json(sesh)
     })
 
+    app.get("/api/all-players", function(req, res) {
+        console.log("query: ", req.query)
+        db.User.findOne({
+            name: req.query.name
+        }).then(function(data) {
+            res.json(data)
+        }).catch(function(err) {
+            console.log(err)
+        })
+    })
+
 }

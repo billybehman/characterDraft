@@ -12,6 +12,11 @@ var CharacterSchema = new Schema({
         required: true
     },
 
+    forPositives: {
+        type: Boolean,
+        default: true
+    },
+
     owner: {
         type: String,
         required: true,

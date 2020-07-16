@@ -5,6 +5,7 @@ import Create from "../components/create"
 import API from "../utils/API"
 import SearchResults from "../components/searchResults"
 import axios from "axios"
+import AddPlayers from "../components/addPlayers"
 const session = require("express-session")
 
 class CreateGame extends Component {
@@ -14,11 +15,14 @@ class CreateGame extends Component {
         searchTitle: "",
         searchYear: "",
         results: {},
-        currentUser: ""
+        currentUser: "",
+        addPlayers: false,
+        playerSearch: "",
+        players: []
     }
 
     componentDidMount() {
-        axios.get("http://localhost:3000/api/get-session").then(data => 
+        axios.get("/api/get-session").then(data => 
         this.setState({
             currentUser: data.data.user
         }))
@@ -58,6 +62,31 @@ class CreateGame extends Component {
         })
     }
 
+    addPlayers = event => {
+        event.preventDefault()
+        this.setState({
+            addPlayers: true
+        })
+    }
+
+    handleAdd = event => {
+        event.preventDefault()
+        let value = event.target.value
+        this.setState({
+            playerSearch: value
+        })
+    }
+
+    handleAddSubmit = event => {
+        event.preventDefault()
+        let playerObj = {
+            name: this.state.playerSearch
+        }
+        axios.get("/api/all-players", { params: playerObj }).then(function(data) {
+            console.log(data.data.name)
+        })
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -70,7 +99,14 @@ class CreateGame extends Component {
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}
                     createGame={this.createGame}
-                />
+                    addPlayers={this.addPlayers}
+                    />
+                }
+                {this.state.addPlayers === true &&
+                    <AddPlayers 
+                        handleAdd={this.handleAdd}
+                        handleAddSubmit={this.handleAddSubmit}
+                    />
                 }
                 <SearchResults 
                     data={this.state.results}

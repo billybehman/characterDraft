@@ -16,7 +16,7 @@ class Login extends Component {
             name: this.state.username,
             password: this.state.password
         }
-        axios.post("http://localhost:3000/api/create-user", userObj).then(function(data) {
+        axios.post("/api/create-user", userObj).then(function(data) {
             console.log(data)
         }).catch(function(err) {
             console.log(err)
@@ -29,7 +29,7 @@ class Login extends Component {
             name: this.state.username,
             password: this.state.password
         }
-        axios.get("http://localhost:3000/api/find-user", { params: userObj }).then(function(data) {
+        axios.get("/api/find-user", { params: userObj }).then(function(data) {
             if (data.data === null) {
                 alert("Either your username or password is wrong or you don't exist and you need to create an account.")
             } else {
