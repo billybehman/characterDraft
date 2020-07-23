@@ -1,0 +1,125 @@
+[
+    {
+        "characters": [
+            {
+                "name": "Johnny Rico",
+                "image": "/images/Johnny-Rico-CD.jpeg",
+                "hidden": false
+            },
+            {
+                "name": "Dizzy Flores",
+                "image": "/images/Dizzy-Flores-CD.png",
+                "hidden": false
+            },
+            {
+                "name": "Denise Richards",
+                "image": "/images/Denise-Richards-ST-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Ace Levy",
+                "image": "/images/Ace-Levy-CD.png",
+                "hidden": false
+            },
+            {
+                "name": "Neil Patrick Harris",
+                "image": "/images/NPH-ST-CD.png",
+                "hidden": false
+            },
+            {
+                "name": "Jean Rasczak",
+                "image": "/images/Jean-Rasczak-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Sgt. Zim",
+                "image": "/images/Sgt-Zim-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Zander Barcalow",
+                "image": "/images/Zander-Barcalow-CD.png",
+                "hidden": false
+            },
+            {
+                "name": "Sugar Watkins",
+                "image": "/images/Sugar-Watkins-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Captain Deladier",
+                "image": "/images/Captain-Deladier-CD.gif",
+                "hidden": false
+            },
+            {
+                "name": "Breckinridge",
+                "image": "/images/Breckinridge-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Pilot Cadet Stack Lumbreiser",
+                "image": "/images/Pilot-Cadet-Stack-Lumbreiser-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Biology Teacher",
+                "image": "/images/Biology-Teacher-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Shujimi",
+                "image": "/images/Shujimi-CD.png",
+                "hidden": false
+            },
+            {
+                "name": "Commanding Officer",
+                "image": "/images/Commanding-Officer-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "General Owen",
+                "image": "/images/General-Owen-CD.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Kitten Smith",
+                "image": "/images/Kitten-Smith-CD.gif",
+                "hidden": false
+            },
+            {
+                "name": "Katrina",
+                "image": "/images/Katrina-CD.jpeg",
+                "hidden": false
+            },
+            {
+                "name": "Mr. Rico",
+                "image": "/images/Mr-Rico-CD.gif",
+                "hidden": false
+            },
+            {
+                "name": "Mrs. Rico",
+                "image": "/images/Mrs-Rico.jpg",
+                "hidden": false
+            },
+            {
+                "name": "Djana'D",
+                "image": "/images/Djana'd-CD.jpeg",
+                "hidden": false
+            },
+            {
+                "name": "Brain Bug",
+                "image": "/images/QM.png",
+                "hidden": false
+            }
+        ],
+        "name": "Starship Troopers"
+    },
+
+    {
+        "name": "Harry Potter"
+    },
+
+    {
+        "name": "Star Wars"
+    }
+]

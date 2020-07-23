@@ -9,7 +9,8 @@ var CharacterSchema = new Schema({
 
     points: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
 
     forPositives: {
@@ -22,6 +23,12 @@ var CharacterSchema = new Schema({
         required: true,
         default: "unowned"
     },
+
+    image: {
+        type: String,
+        required: true,
+        default: "/images/QM.png"
+    }
     
 });
 

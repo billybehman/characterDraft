@@ -9,10 +9,10 @@ function CreateOrFind(props) {
             </div>
             
             <label htmlFor="start">Start Game</label>
-            <input type="radio" name="start" value="start" onChange={props.handleChange} />
+            <input checked={props.status === "start"} type="radio" name="start" value="start" onChange={props.handleChange} />
 
             <label htmlFor="find">Find Game</label>
-            <input type="radio" name="find" value="find" onChange={props.handleChange} />
+            <input checked={props.status === "find"} type="radio" name="find" value="find" onChange={props.handleChange} />
 
         </div>
     )
