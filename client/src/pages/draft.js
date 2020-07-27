@@ -10,7 +10,8 @@ class Draft extends Component {
         charactersArr: [],
         players: [],
         playerDrafting: "",
-        draftOrder: []
+        draftOrder: [],
+        orderComplete: false
     }
 
     componentDidMount() {
@@ -25,7 +26,8 @@ class Draft extends Component {
     handleInputClick = (event, player) => {
         let drafterObj = {
             name: player.name,
-            draftPosition: event.target.value
+            draftPosition: event.target.value,
+            id: player.id
         }
         console.log(player)
         const newArr = this.state.draftOrder.filter(obj => obj.name !== player.name)
@@ -46,7 +48,8 @@ class Draft extends Component {
                     console.log(data)
                     let newCharacterObj = {
                         name: data.data.name,
-                        image: data.data.image
+                        image: data.data.image,
+                        id: data.data._id
                     }
                     this.setState({
                         charactersArr: [...this.state.charactersArr, newCharacterObj]
@@ -71,7 +74,7 @@ class Draft extends Component {
         const possibleArr = this.state.draftOrder.map(obj => obj.draftPosition)
         console.log("Old Arr: " + possibleArr)
         console.log(numArr)
-        
+
         numArr.forEach(num => {
             const find = possibleArr.find(pNum => pNum == num)
             if (find) {
@@ -80,8 +83,97 @@ class Draft extends Component {
                 this.incorrectDraftOrder()
             }
         })
+        this.setState({
+            orderComplete: true
+        })
+        this.startDraft()
+    }
 
-        
+    startDraft = () => {
+        console.log(this.state.draftOrder)
+        this.state.draftOrder.forEach(player => {
+            if (player.draftPosition == 1) {
+                let playerObj = {
+                    name: player.name,
+                    id: player.id,
+                    draftPosition: player.draftPosition
+                }
+                this.setState({
+                    playerDrafting: playerObj
+                })
+            }
+        })
+    }
+
+    positives = (event, character) => {
+        event.preventDefault()
+        let putObj = {
+            player: this.state.playerDrafting.id,
+            character: character.id
+        }
+
+        axios.put("/api/positives", putObj).then(data => {
+            console.log(data)
+            let newArr = this.state.charactersArr.filter(character => character.name !== data.data.name)
+            let thePlayer = this.state.players.find(player => player.id === data.data.owner)
+            console.log(thePlayer)
+            this.state.players.forEach(player => {
+                if (player.id === data.data.owner) {
+                    if (!player.characters) {
+                        player.characters = [data.data.name]
+                    } else {
+                        player.characters.push(data.data.name)
+                    }
+                }
+            })
+            this.setState({
+                charactersArr: newArr
+            })
+        })
+        this.nextPick()
+    }
+
+    negatives = (event, character) => {
+        event.preventDefault()
+        let putObj = {
+            player: this.state.playerDrafting.id,
+            character: character.id
+        }
+
+        axios.put("/api/negatives", putObj).then(data => {
+            console.log(data)
+            let newArr = this.state.charactersArr.filter(character => character.name !== data.data.name)
+            let thePlayer = this.state.players.find(player => player.id === data.data.owner)
+            console.log(thePlayer)
+            this.state.players.forEach(player => {
+                if (player.id === data.data.owner) {
+                    if (!player.characters) {
+                        player.characters = [data.data.name]
+                    } else {
+                        player.characters.push(data.data.name)
+                    }
+                }
+            })
+            this.setState({
+                charactersArr: newArr
+            })
+        })
+        this.nextPick()
+    }
+
+    nextPick = () => {
+        let previousPick = parseFloat(this.state.playerDrafting.draftPosition)
+        let next = 1
+        if (previousPick !== this.state.players.length) {
+            console.log("hellooooo?")
+            next = previousPick + 1
+        }
+        console.log(next)
+        this.state.draftOrder.forEach(player => {
+            if (player.draftPosition == next) {
+                this.state.playerDrafting = player
+            }
+        })
     }
 
     incorrectDraftOrder = () => {
@@ -89,20 +181,35 @@ class Draft extends Component {
         window.location.reload()
     }
 
+    draftIsOver = () => {
+        window.location.replace("/game")
+    }
+
     render() {
         return (
             <React.Fragment>
-                <AllCharacters
-                    characterz={this.state.charactersArr}
-                />
-                <AllPlayers
-                    playerz={this.state.players}
-                />
-                <PreDraft
-                    playerz={this.state.players}
-                    handleInputClick={this.handleInputClick}
-                    handleSubmit={this.handleSubmit}
-                />
+                {this.state.orderComplete === true &&
+                    <AllCharacters
+                        characterz={this.state.charactersArr}
+                        positives={this.positives}
+                        negatives={this.negatives}
+                    />
+                }
+                {this.state.orderComplete === true &&
+                    <AllPlayers
+                        playerz={this.state.players}
+                        drafter={this.state.playerDrafting.name}
+                    />
+                }
+                {this.state.orderComplete === false &&
+                    <PreDraft
+                        playerz={this.state.players}
+                        handleInputClick={this.handleInputClick}
+                        handleSubmit={this.handleSubmit}
+                        playerAmount={this.state.players.length}
+                    />
+                }
+                <button onClick={this.draftIsOver}>Finished Drafting</button>
             </React.Fragment>
         )
     }
@@ -110,4 +217,3 @@ class Draft extends Component {
 
 export default Draft
 
-//i need divs for player 1, 2, and 3 so that their players can go there. When a player selects a character should I run the api call right there or should I wait and run it when the draft is over? Probably right there. 

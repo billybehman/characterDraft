@@ -16,10 +16,17 @@ class Login extends Component {
             name: this.state.username,
             password: this.state.password
         }
-        axios.post("/api/create-user", userObj).then(function(data) {
+        axios.get("/api/find-user", { params: userObj }).then(function(data) {
             console.log(data)
-        }).catch(function(err) {
-            console.log(err)
+            if (data.data) {
+                alert("Someone with this name already exists, change your name")
+            } else {
+                axios.post("/api/create-user", userObj).then(function(data) {
+                    console.log(data)
+                }).catch(function(err) {
+                    console.log(err)
+                })
+            }
         })
     }
 

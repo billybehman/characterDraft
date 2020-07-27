@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Login from "./pages/login"
 import CreateGame from "./pages/createGame"
 import Draft from "./pages/draft"
+import Game from "./pages/game"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/create-game" component={CreateGame} />
         <Route path="/draft" component={Draft} />
+        <Route path="/game" component={Game} />
     </Router>
   );
 }

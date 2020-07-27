@@ -3,19 +3,6 @@ import React from "react"
 function Create(props) {
     return (
         <div>
-            <label htmlFor="searchTitle">
-                Search title
-            </label>
-            <input name="searchTitle" id="searchTitle" placeholder="title" onChange={props.handleInputChange}>
-            </input>
-
-            <label htmlFor="searchYear">
-                Search year
-            </label>
-            <input name="searchYear" id="searchYear" placeholder="title" onChange={props.handleInputChange}>
-            </input>
-
-            <button onClick={props.handleFormSubmit}>Search</button>
 
             <button onClick={props.addPlayers}>Add Players</button>
 
