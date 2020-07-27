@@ -5,7 +5,7 @@ function AllCharacters(props) {
     return (
         <div>
             {props.characterz.map(character => 
-                <div>
+                <div key={character.name}>
                     <div>{character.name}</div>
                     <img src={character.image} />
                     <button onClick={(e) => props.positives(e, character)}>Draft for positives</button>

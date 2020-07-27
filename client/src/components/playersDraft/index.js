@@ -8,14 +8,14 @@ function AllPlayers(props) {
             </h1>
             <div>
                 {props.playerz.map((player)=> 
-                    <div>
+                    <div key={player.name}>
                         <h1>
                             {player.name}
                         </h1>
                         <div>
                             {player.name}'s Characters:
                             {player.characters?.map(
-                                character => <div>{character}</div>
+                                character => <div key={character}>{character}</div>
                             )}
                         </div>
                     </div>

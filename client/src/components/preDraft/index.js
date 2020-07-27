@@ -7,7 +7,7 @@ function PreDraft(props) {
                 Choose Drafting Order
             </h1>
             {props.playerz.map(player =>
-                <div>
+                <div key={player.id}>
                     <h3>
                         {player.name}
                     </h3>

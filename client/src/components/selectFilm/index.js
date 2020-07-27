@@ -7,7 +7,7 @@ function SelectFilm(props) {
             <select name="selectFilm" onChange={props.handleSelect}>
                 <option>Select</option>
                 {props.filmz.map(
-                    film => <option>
+                    film => <option key={film.name}>
                         {film.name}
                     </option>
                 )}

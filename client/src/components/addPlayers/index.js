@@ -11,7 +11,7 @@ function AddPlayers(props) {
             ></input>
             <button onClick={props.handleAddSubmit}>Add</button>
             <div>
-                Current Players: {props.players.map(player => <div>Player: {player.name}</div>)}
+                Current Players: {props.players.map(player => <div key={player.name}>Player: {player.name}</div>)}
             </div>
         </div>
     )

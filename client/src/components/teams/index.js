@@ -4,7 +4,7 @@ function PlayerTeams(props) {
     return(
         <div>
             {props.players.map(player => 
-                <div>
+                <div key={player.name}>
                     <h1>
                         {player.name}'s Team
                     </h1>
@@ -14,7 +14,7 @@ function PlayerTeams(props) {
                     <div>
                         {player.characters?.map(
                             character => 
-                            <div>
+                            <div key={character.name}>
                                 <h3>{character.name}</h3>
                                 <h4>For: {character.forPositives}</h4>
                                 <img src={character.image}/>
