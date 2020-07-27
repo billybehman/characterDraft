@@ -122,5 +122,60 @@
 
     {
         "name": "Star Wars"
+    },
+
+    {
+        "name": "Halloween(87)",
+        "year": 1987,
+        "characters": [
+            {
+                "name": "Loomis",
+                "image": "/images/Halloween-Loomis.jpg"
+            },
+            {
+                "name": "Jamie Lee Curtis",
+                "image": "/images/JLC.jpg"
+            },
+            {
+                "name": "Annie",
+                "image": "/images/Annie.jpeg"
+            },
+            {
+                "name": "Lynda",
+                "image": "/images/Lynda.png"
+            },
+            {
+                "name": "Leigh Brackett",
+                "image": "/images/Leigh_Brackett.jpg"
+            },
+            {
+                "name": "Lindsey",
+                "image": "/images/Lindsey.jpg"
+            },
+            {
+                "name": "Tommy",
+                "image": "/images/tommy.jpg"
+            },
+            {
+                "name": "Bob",
+                "image": "/images/bob.jpg"
+            },
+            {
+                "name": "Marion",
+                "image": "/images/Marion_Chambers.jpg"
+            },
+            {
+                "name": "Graveyard Keeper",
+                "image": "/images/graveyard_keeper.jpg"
+            },
+            {
+                "name": "Lonnie",
+                "image": "/images/Richie.jpg"
+            },
+            {
+                "name": "Michael Myers",
+                "image": "/images/MM.png"
+            }
+        ]
     }
 ]
