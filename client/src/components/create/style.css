@@ -1,0 +1,13 @@
+#createGame {
+    float: right;
+    margin: 100px;
+    background-color: purple;
+    color: white;
+    font-size: 40px;
+}
+
+#addPlayers {
+    background-color: rgb(67, 169, 79);
+    font-size: 30px;
+    margin: 100px;
+}

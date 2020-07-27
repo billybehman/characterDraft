@@ -1,0 +1,14 @@
+#selectFilm {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    font-size: 50px;
+    border-width: 10px;
+    border-style: outset;
+    padding: 5px;
+    border-color: purple;
+}
+
+#select {
+    background-color: rgb(67, 169, 79);
+}

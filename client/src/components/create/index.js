@@ -1,12 +1,13 @@
 import React from "react"
+import "./style.css"
 
 function Create(props) {
     return (
         <div>
 
-            <button onClick={props.addPlayers}>Add Players</button>
+            <button id="addPlayers" onClick={props.addPlayers}>Add Players</button>
 
-            <button onClick={props.createGame}>Create Game</button>
+            <button id="createGame" onClick={props.createGame}>Create Game</button>
 
         </div>
     )

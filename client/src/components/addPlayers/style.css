@@ -1,0 +1,7 @@
+#searchPlayer {
+    border-width: 10px;
+    border-style: outset;
+    padding: 5px;
+    border-color: purple;
+    display: inline-block;
+}

@@ -1,0 +1,13 @@
+.col-sm {
+    border-style: outset;
+    border-color: rebeccapurple;
+    border-width: 4px;
+    margin: 40px 25px;
+}
+
+.character {
+    border-style: outset;
+    border-color: rebeccapurple;
+    border-width: 8px;
+    margin: 10px 5px;
+}

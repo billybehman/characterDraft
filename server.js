@@ -25,11 +25,11 @@ app.use(session({
 }))
 
 // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static("./client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("./client/build"));
+}
 
-app.use(express.static(path.join(__dirname, "./client/build")))
+// app.use(express.static(path.join(__dirname, "./client/public")))
 
 // mongodb:user1password1@ds125871.mlab.com:25871/heroku_0xn0jnk7
 
@@ -42,7 +42,7 @@ require("./routes/apiRoutes")(app);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/build/", "index.html"));
+    res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 
 app.listen(PORT, () => {

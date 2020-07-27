@@ -189,16 +189,16 @@ class Draft extends Component {
         return (
             <React.Fragment>
                 {this.state.orderComplete === true &&
+                    <AllPlayers
+                        playerz={this.state.players}
+                        drafter={this.state.playerDrafting.name}
+                    />
+                }
+                {this.state.orderComplete === true &&
                     <AllCharacters
                         characterz={this.state.charactersArr}
                         positives={this.positives}
                         negatives={this.negatives}
-                    />
-                }
-                {this.state.orderComplete === true &&
-                    <AllPlayers
-                        playerz={this.state.players}
-                        drafter={this.state.playerDrafting.name}
                     />
                 }
                 {this.state.orderComplete === false &&

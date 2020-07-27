@@ -1,8 +1,9 @@
 import React from "react"
+import "./style.css"
 
 function AddPlayers(props) {
     return (
-        <div>
+        <div id="searchPlayer">
             <label htmlFor="playerSearch">Search Player</label>
             <input
                 onChange={props.handleAdd}
@@ -11,7 +12,7 @@ function AddPlayers(props) {
             ></input>
             <button onClick={props.handleAddSubmit}>Add</button>
             <div>
-                Current Players: {props.players.map(player => <div key={player.name}>Player: {player.name}</div>)}
+                <strong>Current Players: </strong>{props.players.map(player => <div key={player.name}>{player.name}</div>)}
             </div>
         </div>
     )

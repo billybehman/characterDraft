@@ -3,5 +3,19 @@ img {
     width: 125px;
 }
 
+#allCharacters {
+    column-count: 3;   
+}
+
+.allCharacters {
+    border-width: 8px;
+    border-style: outset;
+    border-color: purple;
+    padding: 5px;
+    margin: 20px;
+    display: inline-block;
+}
+
+
 
 /* should check to see if there's a way to make it so the picture just scales down at it's origional dimensions */

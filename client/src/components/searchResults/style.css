@@ -1,0 +1,12 @@
+#searchResults {
+    text-align: center;
+}
+
+#image {
+    height: 400px;
+    width: 300px;
+}
+
+.textResults {
+    font-size: 30px;
+}

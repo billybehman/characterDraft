@@ -1,10 +1,11 @@
 import React from "react"
+import "./style.css"
 
 function PlayerTeams(props) {
     return(
-        <div>
+        <div className="row">
             {props.players.map(player => 
-                <div key={player.name}>
+                <div className="col-sm" key={player.name}>
                     <h1>
                         {player.name}'s Team
                     </h1>
@@ -14,7 +15,7 @@ function PlayerTeams(props) {
                     <div>
                         {player.characters?.map(
                             character => 
-                            <div key={character.name}>
+                            <div className="character" key={character.name}>
                                 <h3>{character.name}</h3>
                                 <h4>For: {character.forPositives}</h4>
                                 <img src={character.image}/>

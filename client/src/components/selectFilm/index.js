@@ -1,10 +1,11 @@
 import React from "react"
+import "./style.css"
 
 function SelectFilm(props) {
     return (
-        <div>
+        <div id="selectFilm">
             <label htmlFor="selectFilm">Select Film</label>
-            <select name="selectFilm" onChange={props.handleSelect}>
+            <select id="select" name="selectFilm" onChange={props.handleSelect}>
                 <option>Select</option>
                 {props.filmz.map(
                     film => <option key={film.name}>

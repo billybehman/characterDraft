@@ -1,15 +1,16 @@
 import React from "react"
+import "./style.css"
 
 function SearchResults(props) {
     return (
-        <div>
-            <div>
-                Title: {props.data.Title}
+        <div id="searchResults">
+            <div class="textResults">
+                <strong>Title: </strong>{props.data.Title}
             </div>
-            <div>
-                Plot: {props.data.Plot}
+            <div class="textResults">
+                <strong>Plot: </strong>{props.data.Plot}
             </div>
-            <img src={props.data.Poster} />
+            <img id="image" src={props.data.Poster} />
 
         </div>
     )
